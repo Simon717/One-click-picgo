@@ -5,8 +5,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--path", help="the path of your md file")
 
 if __name__ == '__main__':
-    os.system("sh up.sh")
-
+    # 先替换后上传
     args = ap.parse_args()
 
     infile = args.path
@@ -20,3 +19,5 @@ if __name__ == '__main__':
     out = [l.replace(old, rep) for l in lines]
     with open(outfile, 'w', encoding='utf-8') as f:
         f.writelines(out)
+
+    os.system("sh up.sh")
